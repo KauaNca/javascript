@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 2</title>
+</head>
+
+<body>
+    <script>
+        function massaCorporal() {
+            var nome = prompt('Digite seu nome:')
+            var altura = prompt('Sua altura em centímetros:')
+            var peso = prompt('Seu peso em quilos:')
+            altura = parseFloat(altura)
+            peso = parseFloat(peso)
+            var imc = peso / (altura * altura)
+            var mensagem
+            if (imc <= 16) {
+                mensagem = 'Baixo peso muito grave'
+            }
+            else if (imc > 16 && imc <= 16, 99) {
+                mensagem = 'Baixo peso grave'
+            }
+            else if (imc >= 17 && imc <= 18, 49) {
+                mensagem = 'Baixo peso normal'
+            }
+            else if (imc >= 18, 50 && imc <= 24, 99) {
+                mensagem = 'Peso normal'
+            }
+            else if (imc >= 25 && imc <= 29, 99) {
+                mensagem = 'Sobrepeso'
+            }
+            else if (imc >= 30 && imc <= 34, 99) {
+                mensagem = 'Obesidade grau I'
+            }
+            else if (imc >= 35 && imc <= 39, 99) {
+                mensagem = 'Obesidade grau II (severa)'
+            }
+            else if (imc >= 40) {
+                mensagem = 'Obesidade grau III (mórbida)'
+            }
+            else {
+                mensagem = 'Valor inválido'
+            }
+            return mensagem
+        }
+        var imc = massaCorporal()
+        document.write('Seu resultado foi: '+ imc)
+    </script>
+</body>
+
+</html>

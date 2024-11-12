@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>224</title>
+</head>
+<body>
+    <script>
+        //WINDOW SCREEN -> Ele oferece informações sobre a tela física do usuário, como suas dimensões e capacidades de cores. Essas informações podem ser úteis para projetar interfaces responsivas e amigáveis. Pode ser usado para otimizar a experiência do usuário de acordo com o dispositivo usado, seria a responsividade quando não for somente possível com CSS
+
+        document.write(window.screen.width)//mostra o tamanho que o browser está ocupando, acho que incluindo tudo
+        document.write("<br>"+window.screen.availWidth)//mostra o tamanho que o browser está disponível para uso, não incluindo barra de tarefas. Ou seja, é área útil do browser
+        document.write("<br>"+window.screen.height)
+        document.write("<br>"+window.screen.availHeight)
+
+        //notei que os dois width dava o mesmo resultado, acredito que porque a minha barra de tarefas fica embaixo, então acaba afetando a altura que deu resultados diferentes quando tinha ou não a barra.
+        //availWidth e availHeight -> Indica a parte da tela disponível para o conteúdo da web, excluindo elementos como barras de tarefas ou menus do sistema.
+        //esses vão ser úteis quando determinada coisa só poderá ativar quando atingir determinada largura ou altura
+
+
+        /*
+            Quando Pode Ser Necessário JavaScript
+            Embora o CSS cubra uma ampla gama de necessidades de design responsivo, há cenários em que o JavaScript se torna necessário:
+
+            Ajustes Dinâmicos de Conteúdo: Alterar conteúdo com base nas interações do usuário ou dados em tempo real.
+            Animações Avançadas: Criar animações complexas que vão além do que o CSS pode realizar.
+            Detecção de Recursos: Determinar se certos recursos do navegador estão disponíveis e ajustar a funcionalidade de acordo.
+            No entanto, para muitas exigências padrão de design responsivo, o CSS sozinho é suficiente e recomendado.
+
+
+            ESSE OBJETO É ÚTIL QUANDO FOR AQUELAS PÁGINAS APRESENTANDO UM PRODUTO E SUAS DIMENSÕES. HÁ OUTRAS PROPRIEDADES COMO AS DE CORES AINDA.
+        */
+    </script>
+</body>
+</html>

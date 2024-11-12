@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>211</title>
+</head>
+
+<body>
+    <!--Método Sort
+        método sort() que é usado para ordenar os elementos em ordem ALFANUMÉRICA de um array. Esse método ordena os elementos in-place, ou seja, modifica o array original, e retorna o array ordenado.
+
+        ORDEM ALFANÚMERICA -> A classificação alfanumérica é a organização de dados em ordem alfabética ou numérica
+
+        Com strings, ele faz tranquilamente a ordenação. Agora se for números, é necessário uma função para enviar ao método sort como parâmetro e ensiná-lo como fazer a ordem.
+    -->
+    <script>
+        //Array de nomes
+        var nomes = ["Maria", "João", "Pedro", "Ana", "Luís"];
+        document.write("Primeiro exemplo: " + nomes.sort());
+
+
+        // Array de números
+        //Agora com números é diferente
+        var numeros = [4, 2, 9, 1, 5];
+        function arrumar(a, b) {
+            return a - b
+            //a - b irá retornar um número negativo, zero ou um para fazer a ordem crescente, decrescente ou não alterada, respectivamente
+        }
+        document.write("<br>Segundo exemplo: " + numeros.sort(arrumar));
+        /*sort(arrumar) -> passamos a função para o método como parâmetro, mas em parenteses pois é para a função agir dentro do sort. 
+        Sort pegará o primeiro número e jogará no a e comparará com o segundo, o b, no fim isso vai retornar um valor, dependendo, a posição muda*/
+
+
+        //Ordenar por Propriedade de String (Case Insensitive)
+        const palavras = ['banana', 'Maçã', 'laranja', 'Abacaxi'];
+
+        palavras.sort(function (a, b) {
+            let A = a.toLowerCase();
+            let B = b.toLowerCase();
+            if (A < B) return -1;
+            if (A > B) return 1;
+            return 0;
+        });
+
+        console.log(palavras);
+        // Saída: ['Abacaxi', 'banana', 'laranja', 'Maçã']
+
+        const pessoas = [
+            { nome: 'João', idade: 30 },
+            { nome: 'Maria', idade: 25 },
+            { nome: 'Pedro', idade: 30 }
+        ];
+        console.table(pessoas)
+        //na tabela verá que nome: e idade: acabam sendo os índices, mas que não são números. Por isso que com método sort vc consegue acessar no exemplo abaixo
+        /*O sort() passa dois elementos do array (neste caso, dois objetos) para a função de comparação, que são referenciados como a e b. Dentro da função, usamos essas variáveis (a e b) para acessar as propriedades dos objetos, como a.idade e b.idade.*/
+
+        pessoas.sort(function (a, b) {
+            return a.idade - b.idade; // Acessa a propriedade "idade" de cada objeto
+        });
+        /*
+        a.idade acessa a propriedade idade do objeto a.
+        b.idade acessa a propriedade idade do objeto b.
+        */
+
+        //Ordenar por múltiplos critérios
+        const pessoas2 = [
+            { nome: 'João', idade: 30 },
+            { nome: 'Maria', idade: 25 },
+            { nome: 'Pedro', idade: 30 },
+            { nome: 'Ana', idade: 25 }
+        ];
+
+        pessoas.sort(function (a, b) {
+            if (a.idade !== b.idade) {
+                return a.idade - b.idade;
+            }
+            return a.nome.localeCompare(b.nome);
+        });
+
+        console.log(pessoas2);
+        // Saída:
+        // [
+        //   { nome: 'Ana', idade: 25 },
+        //   { nome: 'Maria', idade: 25 },
+        //   { nome: 'João', idade: 30 },
+        //   { nome: 'Pedro', idade: 30 }
+        // ]
+
+
+
+    </script>
+</body>
+
+</html>

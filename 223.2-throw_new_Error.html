@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>223.2</title>
+</head>
+<body>
+    <script>
+
+        throw new Error("Invalid")//forçamos um erro e ele ja vai aparecer de primeira na página
+        function lerArquivo() {
+            try {
+                // Suponha que esta função tenta ler um arquivo que pode não existir
+                let conteudo = obterConteudoDoArquivo('arquivo.txt');
+                console.log(conteudo);
+            } catch (erro) {
+                console.error('Erro ao ler o arquivo:', erro.message);
+            } finally {
+                console.log('Tentativa de leitura de arquivo concluída.');
+            }
+        }
+
+        lerArquivo();
+    </script>
+</body>
+</html>

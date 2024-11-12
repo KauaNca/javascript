@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>218</title>
+</head>
+
+<body>
+    <h1>LOOPS - Laços encadeados</h1>
+    <p>
+        É um loop dentro de outro. Tem-se um loop pai, que entra dentro do loop filho e só quando o filho terminar, o
+        pai pode sair e fazer novamente.
+    </p>
+    <script>
+        //CALCULADORA com for()
+        for (x = 0; x <= 10; x++) {//laço maior
+            for (y = 0; y <= 10; y++) {//laço filho
+                document.write(y + ' * ' + x + ' = ' + (y * x) + '<br>')
+            }
+            document.write('<hr>')//quebra de linha
+        }
+        /*EXPLICANDO
+            O laço maior começa com x = 0, quando iniciar ele entrará igual a 0 no laço filho e só sairá de lá quando y igual a 10. Y = 10 ele sai do bloco faz a linha horizontal e é incrementado. Tornando-se x = 1, ele faz todo o processo novamente até x = 10
+        */
+
+        //COM MATRIZ (Arrays bidimensionais)
+        let pessoas = [
+            ['João', 25, 'M'],
+            ['Maria', 30, 'F'],
+            ['Pedro', 28, 'M']
+        ];
+
+        for (let a = 0; a < pessoas.length; a++) {
+            for (let b = 0; b < pessoas[a].length; b++) {
+                console.log(pessoas[a][b]);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

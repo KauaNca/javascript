@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>228</title>
+</head>
+<body>
+    <button id="teste">ATUALIZAR A PÁGINA</button>
+    <p id="resultado"></p>
+     <script>
+        // Seleciona o elemento com ID 'teste'
+        const botao = document.getElementById('teste');
+
+        // Adiciona um event listener para o evento 'click'
+        botao.addEventListener("click", function() {
+            // Define um timeout de 4 segundos (4000 milissegundos)
+            setTimeout(function(){
+                // Insere o texto no elemento com ID 'resultado' em vez de usar document.write
+                document.getElementById('resultado').innerText = "Kauã";
+                // Registra no console
+                console.log('Atualizou');
+            }, 4000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>224</title>
+    <script>
+        /*
+            BOM são os objetos disponibilizados pelos navegadores para que interajamos com a página e os elementos dela.
+            Enquanto com o DOM faz a manipulação dos elementos da página, utilizando o BOM e ele pode-se os dois.
+            O alert é um exemplo disso, utiliza-se DOM para colocar o local do alert e o BOM para que ele aconteça na página
+            A diferença é que o DOM é mais orientado para manipulação de elementos, enquanto o BOM é mais orientado para interagir com a página.
+
+            A função alert() recebe um argumento que será exibido como uma caixa de diálogo com um botão OK.
+            A função prompt() também recebe um argumento e retorna o valor digitado pelo usuário.
+            A função confirm() também recebe um argumento e retorna um booleano, true caso o usuário clique em OK e false caso em Cancelar.
+
+        */
+        //ALGUNS MÉTODOS DO BOM
+        //WINDOW.OPEN() -> abre uma página. É utilizado para pop-ups por exemplo.
+        //WINDOW.CLOSE() -> fecha uma página, mas, claro, ela precisa ser indicado primeiro
+        //WINDOW.ALERT() -> exibe uma caixa de diálogo com um botão OK
+        //WINDOW.PROMPT() -> exibe uma caixa de diálogo com um campo de entrada e um botão OK e Cancelar
+        //WINDOW.CONFIRM() -> exibe uma caixa de diálogo com um botão OK e Cancelar e retorna um booleano
+        //WINDOW.LOCATION.href -> muda a URL da página
+        //WINDOW.LOCATION.reload() -> recarrega a página
+        //WINDOW.HISTORY.back() -> volta uma página
+        //WINDOW.HISTORY.forward() -> avança uma página
+        //WINDOW.SCREEN.WIDTH -> retorna a largura da tela do usuário
+        //WINDOW.SCREEN.HEIGHT -> retorna a altura da tela do usuário
+        //WINDOW.screen.availWidth -> retorna a largura disponível na tela do usuário
+        //WINDOW.PRINT() -> faz o caminho de impressão da página
+        //PRÁTICA
+    </script>
+
+</head>
+
+<body>
+    <button onclick="abrirJanela()">Abrir Janela</button>
+    <button onclick="fecharJanela()">Fechar Janela</button>
+    <button onclick="imprimirJanela()">Imprimir Janela</button>
+
+    <script>
+        let janela; // ESCOPO GLOBAL
+        function imprimirJanela(){
+            window.print();
+        }
+        function abrirJanela() {
+            janela = window.open("../JAVASCRIPT/1-funcao - operador_ternario.html", "novaJanela", "width=800, height=600");
+            if (!janela) {
+                alert("A janela foi bloqueada pelo navegador.");
+            }
+        }
+
+        function fecharJanela() {
+            if (janela && !janela.closed) {
+                janela.close();
+            } else {
+                alert("A janela já está fechada ou não foi aberta.");
+            }
+        }
+        /*
+            Por que usar essa verificação?
+            Essa verificação é útil para evitar erros, como tentar fechar uma janela que:
+            Nunca foi aberta (nesse caso, janela seria null ou undefined).
+            Já foi fechada (nesse caso, janela.closed seria true).
+            Sem essa verificação, você poderia tentar executar o método close() em uma janela inexistente ou já fechada, o que poderia gerar erros ou comportamentos inesperados.
+    
+            A janela ainda está aberta:
+            1 - janela.closed será false, então !janela.closed será true, e a janela será fechada quando o código janela.close() for executado.
+            A janela já foi fechada (manualmente pelo usuário ou por outro código):
+    
+            2 - janela.closed será true, então !janela.closed será false, e o código janela.close() não será executado, pois a janela já está fechada.
+    
+            Uso incorreto do window.close() que eu estava fazendo
+            Eles não recebem parâmetros, logo, window.close(janela) é errado.
+    
+                O método window.close() não aceita parâmetros. Quando você passa janela como argumento, ele é ignorado, e o método tenta fechar a janela que está executando o script (a janela atual).
+
+                Como o window.close(janela) não está fechando a janela aberta, ele tenta fechar a janela que está executando o script. Dependendo do navegador e das configurações de segurança, isso pode não ser permitido ou pode ter efeitos inesperados.
+                
+                Solução Correta
+                Para fechar a janela que você abriu anteriormente, você deve usar a referência armazenada na variável janela e chamar o método close() diretamente nela.
+
+
+
+            Pontos Importantes a Considerar
+                Origem da Janela:
+                Mesma Origem: Para que o script consiga interagir com a janela aberta (como fechá-la), ambas as janelas (a principal e a aberta) devem estar na mesma origem (mesmo protocolo, domínio e porta). Caso contrário, devido à política de mesma origem (Same-Origin Policy), o navegador impedirá o acesso para evitar problemas de segurança.
+                Diferente Origem: Se você está tentando abrir uma janela de um domínio diferente (como https://www.google.com), o navegador pode impedir que você a feche via script devido às restrições de segurança. Para testes, você pode tentar abrir uma página do mesmo domínio ou uma página local.
+
+                Bloqueadores de Pop-up:
+                Muitos navegadores modernos possuem bloqueadores de pop-up que impedem a abertura de novas janelas via window.open a menos que a ação seja iniciada por uma interação direta do usuário (como um clique). Certifique-se de que os pop-ups estão permitidos para o site onde você está testando.
+
+
+                Restrições de Segurança do Navegador:
+                Alguns navegadores limitam ou impedem scripts de fechar janelas que não foram abertas pelo próprio script ou que não pertencem ao mesmo domínio. Se a janela que você abriu foi bloqueada ou não foi aberta corretamente, o método janela.close() não funcionará.
+        */
+    </script>
+</body>
+
+</html>

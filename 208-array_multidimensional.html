@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Multidimensionais</title>
+</head>
+<body>
+    <!--MATRIZ: São arrays dentro de arrays-->
+    <!--É muito utilizado com banco de dados-->
+    <script>
+        let lista_de_coisas = Array();//criação de um array
+        lista_de_coisas['frutas'] = Array();//dentro de lista_de_coisas, criasse um novo array que é atribuido ao índice frutas. Ou seja, frutas ocupa um índice.
+        lista_de_coisas['frutas'][1] = "Banana";//dentro do array frutas, o índice 1 é atribuido Banana
+        lista_de_coisas['frutas'][2] = "Maçã"
+        console.log(lista_de_coisas)
+        console.log("Aqui é específico: "+ lista_de_coisas['frutas'][2]);//pegando um especifico
+
+        //agora na mesma variável lista_de_coisas, criasse um novo indice que também receberá um novo array
+        lista_de_coisas['verduras'] = Array();
+        lista_de_coisas['verduras'][1] = "Cebola";
+        lista_de_coisas['verduras'][2] = "Tomate";
+        console.log(lista_de_coisas)
+        console.log("Aqui é específico: "+ lista_de_coisas['verduras'][1]);//pegando um especifico
+
+        //OUTRO EXEMPLO
+
+        let activities = [
+            {name: "Reading", duration: "1 hour"},
+            {name: "Running", duration: "30 minutes"},
+            {name: "Swimming", duration: "2 hours"}
+        ]
+        console.log(activities)
+        console.table(activities) //esse aqui arruma em forma de tabela
+
+        //EXEMPLO 3
+
+        let nomes = [
+            ["Kauã",21],//índice 0
+            ["Lum",17],//índice 1
+            ["Maria",23]//índice 2
+        ]
+        //como não definiu um índice, automaticamente ele joga no 0. Então, no índice 0, há um array que dentro dele ocupa nos índices 0 e 1, respectivamente, Kauã e 21
+        console.table(nomes)
+
+        //agora acessando por meio de índices
+
+        console.log(nomes[1][0])//vai aparecer Lum
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+</head>
+
+<body>
+    <script>
+
+        var area = calcularAreaTerreno()
+        document.write(area);
+        function calcularAreaTerreno(largura, comprimento) {
+            //lógica
+            largura = largura === undefined ? prompt('Por favor, digite um número'): largura
+            //estou fazendo com que a largura passe por uma condição. Se largura for igual undefined, o prompt surgirá, se ele digitar, passará normalmente. Está assim no momento pois era teste 
+            //ops.: apesar do prompt ter uma saída de string, o javascript tem inteligência para seguir.
+            comprimento = comprimento === undefined? prompt('Por favor, digite um número'): comprimento
+            var area = largura * comprimento
+            return area//precisa do return pois senão não retornaria nada, faria só a lógica
+        }
+        //perceba que tem duas váriaves chamada área e mesmo assim não deu erro porque o interpretador
+        //do browser procura as funções primeiramente.
+    </script>
+</body>
+
+</html>

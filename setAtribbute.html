@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Atributte</title>
+</head>
+<body>
+    <!--
+        O método setAttribute é usado para adicionar um novo atributo ou modificar um atributo existente em um elemento HTML. Ele faz parte da interface Element no DOM (Document Object Model).
+        SINTAXE:
+        element.setAttribute(nomeDoAtributo, valorDoAtributo);
+        
+        nomeDoAtributo: O nome do atributo que deseja adicionar ou modificar.
+        valorDoAtributo: O novo valor do atributo. Altera o resultado
+        element: variável que contém um elemento HTML encapsulado
+
+
+        Quando usado e encapsulado, a variável que o possui tem acesso aos atributos da tag
+        O método setAttribute não retorna um valor; ele simplesmente modifica o valor do atributo.7
+
+        Se o elemento HTML não possui o atributo que você está tentando definir, setAttribute irá adicioná-lo.
+
+    -->
+    <img src="imagens/Arknights.jpeg" alt="Imagem" id="minhaImagem"><br>
+    <button type="button">Trocar SRC</button>
+    
+    <script>
+        let botao = document.querySelector('button');
+        botao.addEventListener('click', function () {
+            let imagem = document.querySelector('img');
+            
+            // Obtém apenas o nome do arquivo a partir da URL completa
+            let caminhoAtual = imagem.src.split('/').pop();
+    
+            if (caminhoAtual === 'Crash.jpg') {
+                imagem.setAttribute('src', 'imagens/Arknights.jpeg'); // Troca para a imagem Arknights
+            } else {
+                imagem.setAttribute('src', 'imagens/Crash.jpg'); // Troca para a imagem Crash
+            }
+        });
+
+        //NA PRIMEIRA TENTATIVA UTILIZEI CAMINHOS RELATIVOS, NÃO DEU CERTO, É PRECISO ARMAZENAR O CAMINHO PARA FAZER COMPARAÇÕES
+        /*
+            imagem.src.split('/').pop(): Isso divide a URL da imagem pelo caractere / e pega a última parte, que é o nome do arquivo (Crash.jpg ou Arknights.jpeg). Dessa forma, a comparação funciona corretamente.
+
+            Comparação: Agora, o código compara corretamente os nomes dos arquivos e alterna entre as imagens.
+
+            Assim como existe o setAtributte, há o removeAtributte:
+            element.removeAtributte('nome_do_atributo')
+        */
+    </script>
+    
+</body>
+</html>

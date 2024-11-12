@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>232</title>
+    <style>
+        html{
+            cursor: url("imagens/mata_mosca.png") 30 30,auto;
+        }
+
+        body {
+            background-image: url("imagens/bg.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .mosquito {
+            width: 50px;
+            height: 50px;
+        }
+
+        .mosquito2 {
+            width: 60px;
+            height: 60px;
+        }
+
+        .mosquito3 {
+            width: 80px;
+            height: 80px;
+        }
+
+        .ladoA {
+            transform: scaleX(1);
+            /*não é necessário pois é o lado original*/
+        }
+
+        .ladoB {
+            transform: scaleX(-1);
+            /*inverte o lado*/
+        }
+
+        #painel {
+            width: 190px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            background-color: gray;
+            border: 1px solid black;
+        }
+
+        #tempo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body onresize="ajustarTamanho()">
+    <div id="painel">
+        <div id="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png">
+            <img id="v2" src="imagens/coracao_cheio.png">
+            <img id="v3" src="imagens/coracao_cheio.png">
+        </div>
+        <div id="tempo">
+            <span>Tempo: <span id="cronometro"></span></span>
+        </div>
+    </div>
+</body>
+<script defer>
+    let alturaTela = 0//inicializando no escopo global para que quando saia da função saia com o valor da função
+    let larguraTela = 0
+    let vidas = 1 //serve para concatenar e lógica
+    let tempo = 10 //vai ajudar no cronômetro 
+    let tempo_mosquitos = 2000 //está em milissegundos e vai ser passado para o setInterval quando a dificulade for selecionada
+
+    //pegando a dificulade
+
+    let dificuldade = window.location.search
+    dificuldade = dificuldade.replace('?','');
+
+    if (!dificuldade) {
+            alert('Selecione uma dificuldade');
+            window.location.href = "index.html"; // Redirecionar para a página inicial
+        }
+
+        switch (dificuldade) {
+            case 'facil':
+                tempo_mosquitos = 2000;
+                break;
+            case 'normal':
+                tempo_mosquitos = 1500;
+                break;
+            case 'dificil':
+                tempo_mosquitos = 900;
+                break;
+        }
+
+    function ajustarTamanho() {
+        alturaTela = window.innerHeight;
+        larguraTela = window.innerWidth;
+    }
+    ajustarTamanho() //chamando a função para que atualize as variáves e seja passada para a próxima função
+
+    document.getElementById('cronometro').innerHTML = tempo;//serve para que antes de começar a contagem o número já fique preparado na tela e após 2 segundos ele começar a decrementar
+
+    let cronometro = setInterval(function () {//criação de uma variável que armazena uma função de tempo. Ela servirá para o cronômetro do jogo para que o tempo decremente e que caso não tenha perdido nenhuma vida ele seja direcionado para a página de vitória
+        if (tempo <= 0) {
+            clearInterval(cronometro);//tempo menor que 0, finaliza os setInterval
+            clearInterval(criaMosquito);//também finaliza a criação de mosquito e só reiniciára quando clicar no botão reiniciar
+            window.location.href = "vitoria.html";
+        }
+        else {
+            tempo -= 1
+            document.getElementById('cronometro').innerHTML = tempo;
+        }
+    }, 2000)
+
+
+    function posicaoRandomica() {
+        if (document.getElementById("mosquito")) {
+            document.getElementById("mosquito").remove(); //apenas ele sozinho dá erro, pois na primeira ele não existirá, então como ele vai excluir algo que não existe. Para isso o if()
+
+
+            if (vidas > 3) {
+                clearInterval(criaMosquito);
+                clearInterval(cronometro);
+                window.location.href = "game_over.html";
+            }
+            else {
+                document.getElementById("v" + vidas).src = "imagens/coracao_vazio.png";
+                vidas++
+            }
+
+        }
+
+
+        //criando posições aleatória
+        let posicaoX = Math.floor(larguraTela * Math.random() - 80)
+        /*<- aqui há utilização do método random da biblioteca Math. Esse método coloca números aleatórios entre 0 e 1. Multiplica-se com largura pois assim cria-se posições aleatória de acordo com a largura da viewport.
+        Math.floor <- arredondamento para baixo
+        */
+        posicaoX = posicaoX === 0 ? 0 : posicaoX //Devido a subtração, caso o número seja menor que 0 -> operador ternário para que caso posição seja menor a 0 ele receba 0 e fique dentro da viewport
+        let posicaoY = Math.floor((alturaTela * Math.random()) - 80)
+        posicaoY = posicaoY === 0 ? 0 : posicaoY
+        //console.log('y: ' + posicaoY, 'x: ' + posicaoX)
+
+
+        //criar o elemento html utilizando o DOM
+        let mosquito = document.createElement('img')//aqui já se tem acesso os atributos da tag img, como src e faça a encapsulação
+        mosquito.src = '../mata-mosquito/imagens/mosquito.png'//utilizando os atributos da tag img, como src que agora estão em mosquito. 
+        mosquito.className = tamanhoRandomico() + ' ' + lados()//adicionando classes já criadas no style aqui por meio um callback
+        mosquito.style.position = 'absolute' //adicionando a posição absoluta, só assim para ela ficar se mexendo
+        mosquito.style.top = posicaoY + 'px' //adicionando a posição top com a variável randomica posicaoY
+        mosquito.style.left = posicaoX + 'px' //adicionando a posição left 
+        document.body.appendChild(mosquito) //Com isso se perde a necessidade de se ter um img no html acima pois ele adicionara
+
+        mosquito.id = "mosquito"; //atribuição de um id; como ele vai existir dentro da página ele virá um elemento HTML, faz sentido ter um id. Esse id servirá para o remover quando um outro mosquito vier  e não ficar vários devido o createElement
+
+        mosquito.onclick = function () {
+            this.remove()
+        } //fazendo com que quando clicado, ele seja removido da tela. Quando clicado, vai lá pro if e por isso dá certo
+    }
+    //função para que o tamanho da imagem se altere e colocado no mosquito.className
+    function tamanhoRandomico() {
+        let tamanho_classe = Math.floor(Math.random() * 3) //fica configurado que só teremos 3 resultados: 0, 1 e 2, que são os números de escolha para o switch
+        switch (tamanho_classe) {
+            case 0:
+                return 'mosquito';
+            case 1:
+                return 'mosquito2';
+            case 2:
+                return 'mosquito3';
+        }
+    }
+    //função para que o lado do mosquito seja alterado e colocado no mosquito.className
+    function lados() {
+        let lado = Math.floor(Math.random() * 2) //fica configurado que só teremos 2 resultados: 0 e 1
+        switch (lado) {
+            case 0:
+                return 'ladoA';
+            case 1:
+                return 'ladoB';
+        }
+    }
+    let criaMosquito = setInterval(posicaoRandomica, tempo_mosquitos)// Aqui coloca-se um tempo para que a função ative a cada 2000 milissegundos e faça a tarefa. Nesta forma de fazer, a função entra dentro do setInterval. Ainda armazeno dentro de uma variável para que depois eu possa cancelar o setInterval
+
+    //outra forma de fazer o setInterval, utilizando arrow function
+    // setInterval(() => posicaoRandomica(), 1000)
+    //setInterval(function() { posicaoRandomica},1000)
+
+    criaMosquito();//chamando a função para que aconteça.
+
+
+</script>
+
+</html>

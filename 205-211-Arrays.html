@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <script>
+        //Formas de declarar um array
+        //1º - chamando o nome do objeto
+        var lista_de_frutas = Array();//perceba que não precisa do new
+        lista_de_frutas[1] = 'Banana'
+        lista_de_frutas[2] = 'Maçã'
+        lista_de_frutas['x'] = 'Uva'//o índice não precisa ser um número
+        console.log(lista_de_frutas)
+
+        //PERIGO DA PROPRIEDADE LENGHT
+        //Só há 3 itens, mas o lenght dá 2, pois o lenght só funciona corretamente quando o índice é números e começa do 0. Se houver letra, dá errado a contagem. Então ficar atento quando for comparar com lenght.
+
+        //2ª forma - só colocar chaves
+        var nomes = [];
+        nomes[1] = 'Kauã'
+        nomes[2] = 'Aline'
+        console.log(nomes)
+        
+
+        //3º forma - utilizando o construtor Array
+        var nomes2 = Array('Kauã', 'Aline')//nesse você já inicializa, o js tem inteligência para colocar ele mesmo os índices
+        console.log(nomes2)
+
+        //4ª forma - utilizando o construtor
+        var numeros = [1,2,3]
+        console.log(numeros)
+
+        //obs: quando não coloca-se o número dos índices, a contagem começa do 0
+
+        
+
+        var numeros2 = Array()
+        numeros2['x'] = 2
+        numeros2['y'] = 4
+        console.log(numeros2)
+        console.log(numeros2.length) //mostra o número de elementos do array
+        
+
+
+        //COMO APAGAR DADOS DE ARRAY
+        console.log(nomes.length) //mostra o número de elementos do array
+        nomes.length = 0 //apaga todos os elementos do array
+        console.log(nomes) //mostra um array vazio
+    </script>
+</body>
+</html>

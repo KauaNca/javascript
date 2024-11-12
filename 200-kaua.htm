@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eu fazendo</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        button{
+            display: block;
+            margin: 0 auto;
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>URUSEI YATSURA</p>
+    </div>
+    <button style="background-color: red;" onclick="changeCor('red') ">VERMELHO</button>
+    <button style="background-color: green;" onclick="changeCor('green')">VERDE</button>
+    <button style="background-color: blue;" onclick="changeCor('blue')">AZUL</button>
+    <button type="reset" onclick="changeCor('black')">NORMAL</button>
+    <!--Neste, os botões ao serem clicados mandam parâmetros, que são as cores-->
+    <script>
+        function changeCor(corDiv) {
+            document.querySelector('div').style.backgroundColor = corDiv;
+            //quando o botão for clicado, o parâmetro vai ser recebido pela função na variável corDiv. E essa corDiv será atribuida a div
+        }
+    </script>
+</body>
+</html>

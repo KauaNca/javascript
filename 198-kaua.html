@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        div {
+            background-color: white;
+            display: flex;
+            width: 400px;
+            height: 400px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        input,
+        button {
+            display: block;
+            margin-top: 15px;
+            padding: 10px;
+        }
+
+        button {
+            width: 30%;
+            color: white;
+            background-color: #4CAF50;
+            cursor: pointer;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" placeholder="Digite um caracter" id="caracteres">
+        <button onclick="verificaCaracteres()">Enviar</button>
+        <input type="text" placeholder="Letras" disabled id="letras-apenas">
+        <input type="text" placeholder="Números" disabled id="numeros-apenas">
+    </div>
+    <script>
+        function verificaCaracteres() {
+            var c = document.getElementById('caracteres').value;
+            //apagar o campo do input
+            document.getElementById('caracteres').value = "";
+
+            switch (c) {
+                case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
+                    document.getElementById('numeros-apenas').value += c;
+                    break;
+
+                default:
+                    document.getElementById('letras-apenas').value += c;
+                    break;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

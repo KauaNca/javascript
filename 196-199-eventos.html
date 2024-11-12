@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTOS</title>
+    <style>
+        #mouse{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!--AULA 197 - EVENTOS DE MOUSE-->
+    <!--<div id="mouse" onclick="mostrar()">
+        <p>Onclick</p>
+    </div>
+    <div id="mouse" ondblclick="mostrar()">
+        <p>Ondblclick</p>
+    </div>
+    <div id="mouse" onmouseup="mostrar()">
+        <p>Onmouseup</p>
+    </div>
+    <div id="mouse" onmouseover="mostrar()">
+        <p>Onmouseover</p>
+    </div>
+    <div id="mouse" onmouseout="mostrar()">
+        <p>Onmouseout</p>
+    </div>-->
+
+    <!--AULA 198 - EVENTOS DE TECLADO-->
+    <!--<span>Onkeyup</span>
+    <input type="text" onkeyup="mostrar()">
+    <br>
+    <span>Onkeydown</span>
+    <input type="text" onkeydown="mostrar()">
+    <br>
+    <span>Onkeypress</span>
+    <input type="text" onkeypress="mostrar()">--> <!--AQUI É SÓ CARACTERE MESMO, NÃO É QUALQUER TECLA-->
+
+    <!--AULA 199 - EVENTOS DE PÁGINA/FRAME-->
+    <!--COLOCA ONRESIZE NO BODY-->
+
+    <!--AULA 200 - EVENTOS DE FORMULÁRIO-->
+    <input type="text" onfocus="foco()" onblur="perdaDeFoco()">
+
+    <select onchange="mudou()">
+        <option disabled>--Selecione--</option>
+        <option value="1">Opção 1</option>
+        <option value="2">Opção 2</option>
+    </select>
+
+
+
+
+
+    <script>
+        function mostrar(){
+            alert("Evento disparado")
+        }
+
+        function foco(){
+            console.log("Foco")
+        }
+        function perdaDeFoco(){
+            console.log("Perdeu foco")
+        }
+        function mudou(){//quando ele selecionar outra opção, acionara essa função e mudará o texto
+            let resultado = document.querySelector('select').value
+            console.log("Selecionou: " + resultado)
+        }
+    </script>
+</body>
+</html>

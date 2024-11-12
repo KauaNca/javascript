@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>209.1</title>
+</head>
+
+<body>
+    <script>
+        //propriedade splice -> ela adiciona, subtitui e remove elementos de um array em posições específicas
+        /*sintaxe -> array.splice(
+            start -> de qual elemento começara - primeiro elemento, 5ª elemento,...
+            O índice é baseado em zero, ou seja, o primeiro elemento tem índice 0.
+            
+            deleteCount -> O número de elementos a serem removidos a partir do índice start. Se for 0, nada será removido.
+            item1,item2 -> elementos para adicionar
+        )*/
+        let lista_de_numeros = [1, 2, 3, 5, 11]//criação de array
+        lista_de_numeros.splice(3, 0, 15, 88)//indicando que começara a partir do 3ª elemento (número 5 no array), não excluir nenhum, 
+        //adicionar 15 e 88 no array a partir do 3ª elemento
+        console.log(lista_de_numeros)
+
+
+        //removendo
+        let fruits = ['apple', 'banana', 'orange', 'kiwi'];
+        fruits.splice(1, 1); // Remove 1 elemento a partir do índice 1 (banana)
+        console.log(fruits); // ['apple', 'orange', 'kiwi']
+
+        //adicionando e removendo ao mesmo tempo
+        let times = ['Flamengo','Botafogo','São Paulo','Internacional']
+        times.splice(2,2,'Grêmio','Juventude')//vai excluir São Paulo e Internacional
+        console.log(times)
+
+    </script>
+</body>
+
+</html>

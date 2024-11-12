@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //SCRIPT NÃO INTERROMPE MESMO COM ERRO
+        let nomes = Array()
+        nomes[1] = Array()
+        nomes[1]['nome'] = "Kauã", //strings indices necessitam de aspas
+        nomes[1]['outro'] = "Maria"
+
+        //agora produzindo um erro
+        try {
+            console.log(nomes[0]['nome']); // 'video' não está definido
+        } catch (erro) {
+            console.log("Sem erro e passou")
+        }
+
+        //ESSE DAQUI O SCRIPT É INTERROMPIDO
+        let video = Array()
+        video[1] = Array()
+        video[1]['nome'] = "Kauã", //strings indices necessitam de aspas
+        video[1]['outro'] = "Maria"
+
+        //agora produzindo um erro
+        try {
+            console.log(video[0]['nome']); // 'video' não está definido
+        } catch (erro) {
+            console.error("Erro: ", erro);//aqui vai aparecer toda mensagem do try
+            console.error("Erro: ", erro.mensage);//aqui só a mensagem
+        }
+
+    </script>
+</body>
+
+</html>

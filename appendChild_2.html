@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendChild 2</title>
+</head>
+<body>
+    <!--UTILIZANDO APPENDCHILD PARA MOVER UM ELEMENTO EXISTENTE PARA DENTRO DE OUTRO-->
+    <div id="container0" style="width: 200px; height:100px; border: 1px solid red;">
+        <p>Este texto será movido</p>
+    </div>
+    <button type="button">Mover</button>
+    <div id="container" style="width: 200px; height:100px; border: 1px solid blue;">
+        <!--Novo container para onde o texto será movido-->
+        <p>Novo texto</p>
+    </div>
+    <script>
+        //encapsulando
+        botao = document.querySelector('button')
+        texto = document.querySelector('#container0 p')
+        div = document.querySelector('#container')
+        //fazendo a mudança
+        botao.addEventListener('click', function(){
+            div.appendChild(texto);
+        })
+        /*outros métodos além do appendChild
+            prepend -> coloca em primeiro
+            replaceChild -> substitui um elemento por outro
+            removeChild -> remove um elemento
+            cloneNode -> clona um nó
+            insertBefore -> insere um nó antes de outro com uma referência
+            insertAdjacentElement -> esse coloca em uma posição especifica
+        */
+    </script>
+</body>
+</html>

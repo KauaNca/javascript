@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>231</title>
+</head>
+<body onresize="ajustarTamanho()"><!--A cada dimensionamento chama a função-->
+    <script>
+        /*
+        window.innerHeight and window.innerWidth são propriedades do window que mostram o tamanho da viewport, ou seja, a área visível para o usuário dentro do navegador.
+        Essa largura e altura inclui a área visível do conteúdo da página, excluindo elementos como barras de rolagem verticais, bordas e barras de ferramentas do navegador.
+        */
+       //Toda vez quando houver um redimensionamento chamará a função que escreverá na tela a nova medida
+       function ajustarTamanho(){
+        var w = window.innerWidth;//encapsulando
+        var h = window.innerHeight;
+        console.log('Largura: '+ w);//mostrando na tela
+        console.log('Altura: '+ h);
+       }
+    </script>
+</body>
+</html>

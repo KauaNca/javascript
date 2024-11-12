@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--WHILE-->
+    <h1>While Loop</h1>
+    <p>
+        O while loop é um laço de repetição que continua enquanto uma condição é verdadeira.
+        Ele é utilizado quando você não sabe quantas vezes você deseja executar um trecho de código.
+    </p>
+    <script>
+        let x = 1
+        /*while(x<=15){
+            document.write(x + "<br>")
+            x++ //incremento -> necessário pois o while não incrementa por si só
+        }*/
+        //agora com continue e break. Eles quando utilizados, quando cumprida a condição, partem para 
+        //a próxima, mas enquanto o loop não for finalizado ele não sai
+
+        //BREAK -> quando utilizado, ele encerra o loop quando a condição for cumprida. É uma condição de outra condição.
+        /*while(x<5){
+            document.write(x+"<br>")
+            if(x === 3){
+                break //quando x chegar ao 3 ele encerrá e parte para o próximo código
+            }
+            x++
+        }*/
+        //CONTINUE -> esse é perigoso. Parecido com break, mas ele acaba pulando a próxima linha de comando quando cumprida a condição
+
+        /*MODO ERRADO -< Abaixo criará um loop infinito pois no momento que x for igual a 3,  o continue será executado e ele pulará o próximo comando que é escrever na tela e incrementar, fazendo com x fique sempre igual a 3 e não saia do loop.
+        while(x<5){
+            if(x === 3){
+            
+                continue //
+            }
+            document.write(x+"<br>")
+            x++
+        }*/
+
+        /*MODO CERTO*/
+        while (x < 5) {
+            if (x === 3) {
+                x++ //incremento -> necessário pois o continue não incrementa por si só. Assim ele sairá do 3 e ir pro 4
+                continue
+            }
+            document.write(x + "<br>")
+            x++
+        }
+    </script>
+</body>
+
+</html>

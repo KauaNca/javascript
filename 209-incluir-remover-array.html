@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>209</title>
+</head>
+<body>
+    <script>
+    /*métodos 
+    push -> adicionar no final do array
+    pop -> excluir o último do array
+    shift -> exclui o primeiro elemento
+    unshift -> adicionar no começo 
+    splice -> excluir ou adicionar elementos no array
+    slice -> cortar um array
+    concat -> concatenar arrays
+    indexOf -> retornar a posição do primeiro elemento que corresponde ao valor especificado
+    lastIndexOf -> retornar a posição do último elemento que corresponde ao valor especificado
+    forEach -> percorrer todos os elementos do array e executar uma função
+    map -> percorrer todos os elementos do array e executar uma função e retornar um novo array com os resultados
+    filter -> percorrer todos os elementos do array e executar uma função e retornar um novo array com os elementos que satisfazem a condição
+    reduce -> percorrer todos os elementos do array e executar uma função, retornando um único valor
+    join -> transformar o array em uma string, separando cada elemento por um separador especificado
+    reverse -> inverter a ordem dos elementos do array
+    sort -> ordenar os elementos do array
+    includes -> verificar se um valor existe no array
+    find -> retornar o primeiro elemento que satisfaz a condição especificada
+    */
+        let lista_de_numeros = []//perceba, vazio
+        lista_de_numeros.push(1)//como está vazio, ele será o primeiro 
+        console.log(lista_de_numeros)
+
+        lista_de_numeros.push(2,3,4,5)
+        console.log(lista_de_numeros)
+
+        lista_de_numeros2=[1,2,3];
+        lista_de_numeros2.unshift(10)
+        console.log(lista_de_numeros2)
+         
+        let lista_de_numeros3=[1,2,3,4];
+        lista_de_numeros3.pop()//vai excluir o 4
+        lista_de_numeros3.shift()//vai excluir o 1
+        console.log(lista_de_numeros3)
+
+        //isso funciona independende se o array é simples ou multidimensional
+        let lista_de_numeros4=[[1,2,3],[4,5,6],[7,8,9]]
+        console.log(lista_de_numeros4[1][2])//vai aparecer o 6. --> não se esqueca a contagem começa do 0
+        console.table(lista_de_numeros4)
+        
+        console.log(lista_de_numeros4[0].splice(1,2));
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>210</title>
+</head>
+<body>
+    <script>
+        /*
+        indexOf -> retornar a posição(índice) do primeiro elemento que corresponde ao valor especificado
+        lastIndexOf -> retornar a posição do último elemento que corresponde ao valor especificado
+            Se após a pesquisa não encontrarem, o resultado será -1
+        */
+       let nomes = ['Kauã','Ana','Derick','Júlia','Kauã','Elizabete','Emy']
+        console.log('Posição do nome Ana: '+nomes.indexOf('Lum')) //vai aparecer 1
+        console.log('Última posição do nome Kauã: '+ nomes.lastIndexOf('Kauã')) //vai aparecer 4, pois é a última vez do elemento aparecendo
+
+        //complicando
+
+        let nomes2 = [['Kauã','Ana'],['Derick'],['Júlia'],['Júlia']];
+        console.log(nomes2.indexOf('Júlia'))//não funciona,aparece -1, agora se for...
+        console.log(nomes2.indexOf(['Júlia']))//não funciona também
+        console.log(nomes2[0].indexOf('Ana'))//funciona
+        //não funciona pois o indexOf e lastIndexOf não pecorre array multidimensional pelo que parece, tem que ser outra propriedade
+
+        //podemos fazer com if
+        if (nomes2[0].indexOf('Ana') === 1){
+            console.log('Achou Ana no array multidimensional')
+        }
+        else{
+            console.log('Não achou Ana no array multidimensional')
+        }
+
+
+        /*AINDA NÃO ENTENDI ESSE*/
+        console.log(nomes2.findIndex(nome => nome[0] === 'J')) //vai aparecer 2, pois é o índice do array 2 (Júlia)
+
+        //o findIndex também serve para encontrar um elemento, retornando o índice do primeiro elemento que satisfaz a função fornecida
+        console.log(nomes.findIndex(nome => nome === 'Ana')) //vai aparecer 1
+
+        //utilizando lastIndexOf
+    </script>
+
+
+</body>
+</html>

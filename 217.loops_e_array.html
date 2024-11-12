@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>217</title>
+</head>
+<body>
+    <h1>Array e Loops</h1>
+    <p>
+        Utiliza-se loops para pecorrer arrays. Normalmente essas informações do array vem do banco de dados, mas aqui colocamos
+    </p>
+    <script>
+        let pessoas = ['Kauã','Lum','Maria','John']
+        for(i = 0; i < pessoas.length;i++){//iniciamos variável i = 0; enquanto i for menor que o array pessoas; incremente
+            document.write(pessoas[i]+"<br>");//então colocamos variável i como índice e assim ele vai pecorrer
+        }
+
+        //outra forma
+        //ERRADO
+        /*
+        Quando você tenta imprimir um objeto dessa maneira, ele não será exibido de forma legível, pois o JavaScript não sabe como formatar automaticamente objetos complexos (como um objeto com várias propriedades) em uma string. O resultado pode ser algo como [object Object].
+
+        Para resolver esse problema, você precisa acessar as propriedades do objeto (como nome e idade) e, em seguida, exibi-las de maneira adequada.
+
+        Solução:
+        Você deve acessar as propriedades individuais de cada objeto no array e formatar a saída. Aqui está o código corrigido:
+        */
+        /*let nomes = [
+            {nome:"Kauã",idade:21},
+            {nome:"Lum",idade:23},
+            {nome:"Maria",idade:19}
+        ]
+        let x = 0
+        while(x < nomes.length){
+            document.write(nomes[x] + "<br>")
+            x++
+        }*/
+
+        //FORMA CORRETA
+        let nomes = [
+            {nome:"Kauã",idade:21},
+            {nome:"Lum",idade:23},
+            {nome:"Maria",idade:19}
+        ]
+        for(let i = 0; i < nomes.length; i++){
+            document.write("<BR>"+nomes[i].nome + " - " + nomes[i].idade + " anos<br>")//É NECESSÁRIO  ACESSAR OS OBJETOS DO ARRAY
+        }
+    </script>
+</body>
+</html>

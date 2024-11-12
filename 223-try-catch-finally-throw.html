@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>223</title>
+</head>
+
+<body>
+    <script>
+        /*
+            TRATAMENTO DE ERROS - TRY,CATCH,FINALLY e THROW
+            Servem exatamente para caso haja algum erro, o script, a aplicação não seja interrompida por completo. Ou seja, são reativadores de código.
+
+            try {
+                // Código que pode gerar um erro
+
+            } catch (erro) {
+
+                // Lidar com o erro
+
+                //Captura o erro lançado no bloco try e o atribui à variável local erro.
+
+                //o parâmetro erro recebe a mensagem do erro do try. Se de um  console.log, verá a string do erro.
+
+                //nesse bloco pode ainda colocar uma função que pegará esse erro e mandará para as pessoas que mexem no sistema para assim depois elas arrumarem. FICA A DICA!
+
+            } finally {
+            // Código que sempre será executado, INDEPENDENTE SE FOR ERRO OU NÃO.
+            //É útil para limpar recursos, fechar conexões, ou executar qualquer código que deva ocorrer sempre.
+
+            }
+
+            throw -> esse vai contramão; ele é usado quando é necessário que se pare a aplicação, mas claro com algo a mais, como mudar a mensagem do erro, por exemplo. Imagine que o usuário entre numa página que não deveria, isso virá um exceção e você pode colocar o throw para lançar algo, uma mensagem do erro. Pode ir em qualquer parte do código, mas mais usado no catch.
+            A instrução throw permite que você lance manualmente um erro. Isso é útil para validar condições específicas e gerar erros personalizados.
+
+
+            O console.error é um método do objeto console em JavaScript que permite registrar mensagens de erro no console do navegador.
+            Específico para registrar mensagens de erro. As mensagens enviadas por console.error geralmente aparecem em vermelho no console, destacando-se das mensagens normais e facilitando a identificação de problemas. Ou seja, pode personalizar a mensagem do erro ao invés de ser aquela informação toda.
+
+            O Que é erro.message?
+        erro.message é uma propriedade do objeto Error em JavaScript que contém uma descrição detalhada do erro que ocorreu. Quando um erro é lançado (usando throw) ou capturado em um bloco catch, ele é representado por um objeto de erro que inclui várias propriedades úteis, sendo message uma das principais.
+
+        Estrutura do Objeto Error
+        Um objeto Error em JavaScript possui, entre outras, as seguintes propriedades:
+
+        name: O nome do erro (por exemplo, Error, TypeError, ReferenceError).
+        message: Uma mensagem descritiva sobre o erro.
+        stack: Uma stack trace que mostra onde o erro ocorreu (útil para depuração).
+
+        */
+
+        //EXEMPLO BÁSICO DE ERROR
+
+        try {
+            // Código que gera um erro
+            let resultado = dividir(10, 0);
+            console.log(resultado);
+        } catch (erro) {
+            console.error('Ocorreu um erro durante a divisão:', erro.message);
+            //erro.message vai pegar a string vinda do throw.
+            //O bloco catch captura o erro e utiliza erro.message para exibir a mensagem de erro específica.
+        }
+
+        function dividir(a, b) {
+            if (b === 0) {
+                throw new Error('Divisão por zero não é permitida.');//aqui é uma instância da classe Error, que recebe uma string 
+            }
+            return a / b;
+        }
+        //SAIDA NO CONSOLE DESSE CÓDIGO 
+        // Ocorreu um erro durante a divisão: Divisão por zero não é permitida.
+
+        /*
+            Por Que Usar erro Como Nome de Variável?
+            O nome erro é apenas uma convenção e pode ser substituído por qualquer outro nome válido de variável. Por exemplo:
+
+            try {
+            // Código que pode gerar um erro
+            } catch (excecao) {
+            console.error('Erro capturado:', excecao.message);
+            }
+
+
+            Embora a variável que captura o erro (erro, e, excecao, etc.) não seja global, o objeto de erro que ela referencia é uma instância da classe Error ou de uma de suas subclasses (TypeError, ReferenceError, etc.). A classe Error é uma classe global em JavaScript, o que significa que está disponível em todo o ambiente de execução.
+
+            Ou seja, quando se usa catch(), dentro do parêntes qualquer palavra acaba virando o objeto da classe Error e por isso vc consegue usar message, name e stack.
+
+            try {
+            throw new Error('Algo deu errado!');
+            } catch (erro) {
+            console.error('Nome do erro:', erro.name); // "Error"
+            console.error('Mensagem do erro:', erro.message); // "Algo deu errado!"
+            console.error('Stack trace:', erro.stack); // Detalhes da stack trace
+            }
+
+            Explicação:
+
+            new Error('Algo deu errado!') cria uma nova instância do objeto Error.
+
+            O throw lança esse erro, que é então capturado pelo catch e atribuído à variável erro.
+        */
+
+
+        try {
+            let resultado = 10 / 0; // Em JavaScript, divisão por zero não gera um erro, mas vamos forçar um
+            if (!isFinite(resultado)) {
+                throw new Error('Divisão por zero não é permitida.');
+            }
+            console.log(resultado);
+        } catch (erro) {
+            console.error('Ocorreu um erro:', erro.message);
+        }
+        //EXEMPLO TRY, CATCH E FINALLY
+        function lerArquivo() {
+            try {
+                // Suponha que esta função tenta ler um arquivo que pode não existir
+                let conteudo = obterConteudoDoArquivo('arquivo.txt');
+                console.log(conteudo);
+            } catch (erro) {
+                console.error('Erro ao ler o arquivo:', erro.message);
+            } finally {
+                console.log('Tentativa de leitura de arquivo concluída.');
+            }
+        }
+
+        lerArquivo();
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JavaScript</h1>
+    <script>
+        /*EXEMPLOS DE OPERADOR TERNÁRIO */
+        //exemplo 1
+        /*var isMember = false
+        document.write("The fee is " + (isMember ? "$2.00" : "$10.00"));*/
+
+
+        //exemplo 2
+        /*var firstCheck = false, secondCheck = false access = firstCheck ? "Access denied" : secondCheck ? "Access denied" : "Access granted";*/
+
+        /*console.log(access); // logs "Access granted"*/
+
+        /*exemplo 3
+        var stop = false,
+        age = 16;
+
+        age > 18 ? location.assign("continue.html") : (stop = true);
+        */
+        
+        //exemplo 4
+        /*var age = 19 ;
+        var url = age > 18 ? (alert("OK, you can go."),"continue.html"): (alert("You are much too young!"),alert("Sorry :-("),"stop.html");*/
+        //sequência de alert, perceba que o parênteses servem para que tudo dentro do parênteses serve para o alert, ele vai executar tudo que está dentro do parênteses;
+        //
+
+        //ESCOPO DE VARIÁVEIS
+
+        //exemplo 1
+        /*var globalVar = "This is a global variable";
+        function testFunction() {
+            var localVar = "This is a local variable";
+            console.log(globalVar); // logs "This is a global variable"
+            console.log(localVar); // logs "This is a local variable"
+        }
+        testFunction();
+        console.log(globalVar); // logs "This is a global variable"
+        console.log(localVar); */// ReferenceError: localVar is not defined*/
+
+        //FUNÇÕES ANÔNIMAS
+        // var exibirSaudacao = function(nome){
+        //     document.write(`Ola ${nome}, seja bem-vindo`)
+        // }
+        // exibirSaudacao("Kauan")//utilizando o parâmetro da função por meio da variável
+
+        //FUNÇÃO DE CALLBACK
+        
+    </script>
+
+</body>
+
+</html>

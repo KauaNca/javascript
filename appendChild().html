@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appendChild</title>
+</head>
+<body>
+    <ul>
+        <li>Sailor Moon</li>
+        <li>Naruto</li>
+        <li>Bleach</li>
+        <li>Urusei Yatsura</li>
+    </ul>
+    <script>
+        let lista = document.querySelector('ul')
+        let novoItem = document.createElement('li')
+        novoItem.textContent = 'Dragon Ball Z'
+        lista.appendChild(novoItem)
+
+        /*
+            appendChild é usado junto com createElement pois ele faz a função de colocar na página ou dentro de um outro elemento HTML.
+        O novo item criado é colocado como último filho. Então normalmente se o Body estiver cheio de elementos, e utilizar o appendChild no body, o novo elemento só apareceria no último como foi na lista acima.
+        SINTAXE: 
+        parentNode.appendChild(childNode);
+            parentNode: O nó pai ao qual você deseja adicionar o novo elemento.
+            childNode: O nó que será adicionado como filho do parentNode.
+
+         Ele permite adicionar novos elementos de forma dinâmica, movê-los dentro da estrutura da página e construir interfaces interativas e responsivas. 
+         Quando você usa appendChild, o childNode é inserido no final da lista de filhos do parentNode. Se o childNode já existir no DOM, ele será removido de sua posição atual e adicionado ao novo parentNode.
+
+         
+        */
+    </script>
+</body>
+</html>

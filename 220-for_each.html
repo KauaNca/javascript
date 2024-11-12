@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>220</title>
+</head>
+
+<body>
+    <h1>FOR...EACH</h1>
+    <p>
+        O método forEach() em JavaScript é uma maneira conveniente de iterar sobre os elementos de um array. Ele executa
+        uma função fornecida uma vez para cada elemento do array, facilitando a realização de operações como
+        processamento, modificação ou exibição de dados.<br>
+        A função forEach() não retorna um novo array, mas simplesmente executa a função fornecida para cada elemento do
+        array.<br>
+        Lembre-se disso, ele é um método do objeto Array aqui, não um loop como em outras linguagens, mas que acaba
+        funcionando do mesmo jeito.
+        <br>
+
+    </p>
+    <script>
+        /*SINTAXE:
+        nome_do_array.forEach(function(valor, índice, array) {
+            // Código a ser executado para cada elemento
+        });
+        Aqui é passado uma função que pega o que o forEach está fazendo e separa os resultados. Ou seja, a função atua sobre o forEach, pois ele sozinho não consegue separar as informações obtidas dentro do array.
+        Essa função é muito utilizado fora ou até mesmo é colocado dentro de uma variável e depois só passada por forEach
+        ***os parâmetros da função são opcionais, não precisa de todos, normalmente só pega o valor.
+        ***os parâmetros podem ser qualquer nome, o que importa é a ordem. O primeiro serve para pegar o valor, e assim em diante.
+
+        OBS.: foreach só atua em índices númericos, não precisa ser sequencial, mas se não for índice numérico, ele desconsidera.
+
+        Exemplo
+        function x (indice){ <- veja que só quis o índice do array
+            console.log(indice);
+        }
+            e depois
+
+        nomes.forEach(x);<-PASSOU A FUNÇÃO PARA O FOREACH
+        */
+
+        // Array de nomes
+        var nomes = ["Maria", "João", "Pedro", "Ana", "Luís"];
+        nomes.forEach(function (valor) {
+            console.log(valor); // Mostra cada nome na tela, um por vez.
+        })
+
+        //combinando
+
+        nomes.forEach(function (x, y) {
+            console.log('índice: ' + y + ' valor: ' + x)
+        })
+
+        //com os três dá para brincar
+
+        nomes.forEach(function (valor, indice, array) {
+            if (valor == 'Ana') {
+                array[indice] = 'Alteração'
+            }
+            console.log('O valor é: ' + valor + ' e está na posição: ' + indice + ' do array: ' + array)
+            //adicionando valores 
+        })
+
+        //outros exemplos
+
+        const pessoas = [
+            { nome: 'Kauã', idade: 25 },
+            { nome: 'Ana', idade: 28 },
+            { nome: 'Lum', idade: 30 }
+        ];
+
+        pessoas.forEach(function (pessoa) {
+            console.log(`${pessoa.nome} tem ${pessoa.idade} anos.`);
+        });
+
+        // Usando arrow function
+        pessoas.forEach(pessoa => console.log(`${pessoa.nome} tem ${pessoa.idade} anos.`));
+
+
+
+        //Mudando elementos
+        let numeros = [1, 2, 3, 4, 5];
+
+        numeros.forEach(function (valor, índice, arr) {
+            arr[índice] = valor * 2;
+        });
+
+        console.log(numeros); // [2, 4, 6, 8, 10]
+
+    </script>
+</body>
+
+</html>

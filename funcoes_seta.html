@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções seta</title>
+</head>
+
+<body>
+    <script>
+        /*
+        As funções de seta permitem escrever funções de forma mais enxuta, omitindo a palavra-chave FUNCTION e usando => para indicar a função.
+
+        Implicação de Retorno:
+
+        Se a função de seta tiver apenas uma expressão e não usar chaves {}, o valor dessa expressão será retornado automaticamente. No seu caso, como há múltiplas instruções, as chaves são necessárias.
+
+        sintaxe:
+        Normalmente são os parâmetros e depois as setas. Se for apenas uma instrução, não precisa de chaves.
+        SE NÃO HOUVER PARÂMETRO, COLOQUE APENAS () => e siga em frente
+
+        */
+
+        let lista = document.createElement('ul'); //criação de uma lista dinâmica e encapsulado da variável lista
+
+        let items = ['item1', 'item2', 'item3']//array que vai servir para criar as li 
+
+        //Função de seta para adicionar os items à lista
+        items.forEach(texto => {//texto = parâmetro e quando é só um, por padrão, o forEach joga nele o valor dentro do array
+            let item = document.createElement('li');//criação das li e armazenado 
+            item.textContent = texto;//adiciona o texto nas li utilizando o forEach para pegar o valor e colocado no parâmetro texto e agora passado para o textContent do item
+            lista.appendChild(item); //adiciona as li à lista utilizando a variável lista que armazenou um elemento criado.
+        })
+
+        //Adiciona a lista à página 
+        document.body.appendChild(lista);
+
+        //E SE FOSSE O MODO TRADICIONAL
+        /*
+            Let lista = document.createElement('ul');
+            let items = ['item1', 'item2', 'item3'];
+            items.forEach(function(texto){
+                let item = document.createElement('li');
+                item.textContent = texto;
+                lista.appendChild(item);
+            });
+            document.body.appendChild(lista);
+        */
+
+        /*
+            OUTROS EXEMPLOS
+
+            const soma = (a, b) => {
+                    return a + b;
+                };
+
+                console.log(soma(5, 3)); // Saída: 8
+                ________________
+                
+            const saudacao = nome => `Olá, ${nome}!`;
+
+            console.log(saudacao('Maria')); // Saída: Olá, Maria!
+
+
+        */
+    </script>
+</body>
+
+</html>

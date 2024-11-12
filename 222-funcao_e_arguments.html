@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>222</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Argumentos são os valores que você passa para uma função quando a chama. Eles permitem que as funções sejam mais flexíveis e reutilizáveis, pois podem operar com diferentes dados a cada execução.
+        Quando você declara uma função, você define parâmetros que atuam como variáveis locais dentro da função. Ao chamar a função, você passa argumentos que correspondem a esses parâmetros.
+
+        EXEMPLO PARÂMETRO PADRÃO
+
+        function saudacao(nome = 'Visitante') {
+            console.log(`Olá, ${nome}!`);
+        }
+
+        saudacao(); // Saída: Olá, Visitante! -> quando só chama a função
+        saudacao('João'); // Saída: Olá, João! -> quando passa um argumento
+
+        OBJETO ESPECIAL ARGUMENTS
+        É semelhante ao array, pode pecorrer argumentos das funções. Assim você pode deixar com que uma função não tenha variáveis locais e a função pode receber quantos argumentos puder pois o objeto argument pegará
+
+        arguments: É um objeto interno disponível dentro de todas as funções regulares (não funciona em funções de seta). Ele contém todos os argumentos passados para a função, mesmo que os parâmetros não sejam explicitamente definidos.
+        */
+
+        function nome() {
+            console.log(arguments) //verá que Kauã e Deri estará lá. É parecido com array, mas não é, é um objeto local que pode ser usado em muitos 
+        }
+        nome("Kauã", "Deri")
+
+        //dessa forma, fica fácil não ter que passar um número limitado de variáveis como argumentos, pois dessa forma pode ser infinito.
+
+        function nomes() {
+            for (let i = 0; i < arguments.length; i++) {//apenas utilizar arguments, sabe que é da função. Não precisa de nomes.arguments
+                document.write(arguments[i]+'<br>');
+            }
+        }
+        nomes("Kauã", "Lum", "Ataru", "Derick")
+
+        //utilizando for in
+
+        function soma(){
+            let soma = 0
+            for(let x in arguments){
+                soma += arguments[x]; // o for in pega o índice, serve tanto para arrays quanto objetos
+            }
+            return soma
+        }
+        document.write('<br> SOMA: '+ soma(5,8,100,50))//Ah, se for texto, vai concatenar
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções 2</title>
+</head>
+
+<body>
+    <script>
+        function soma(a, b) {
+            return a + b;
+        }
+        document.write(soma(1, 2) + '<br>')
+        document.write(soma(1, 3, 3, 4))//mais de um parâmetro
+
+        /*
+        document.write(soma(5,4))//normal, vai aparecer 9
+        document.write(soma(5,4,5,4))//aqui foi mais de 2 parâmetros, ele vai desconsiderar sem interromper a função
+        document.write(soma(5))//se foi só um, o outro parâmetro receberá undefined, logo, teremos uma soma entre número e string = NaN -> not a number
+        document.write(soma())//vazio, os dois undefined, resultado = NaN
+
+        */
+    </script>
+</body>
+
+</html>

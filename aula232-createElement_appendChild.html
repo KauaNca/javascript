@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>232</title>
+</head>
+
+<body>
+    <script>
+        /*
+            document.createElement é um método do objeto document no JavaScript que permite criar novos elementos HTML dinamicamente. Esse método é fundamental para a manipulação do DOM (Document Object Model), permitindo que você adicione, remova ou modifique elementos em uma página web de forma programática.
+
+            sintaxe:
+            document.createElement(tagName)
+                tagName: O nome do elemento HTML que deseja criar.
+                Quando usado e encapsulado, a variável que o possui tem acesso aos atributos da tag
+        */
+        //EXEMPLO 1
+        let texto = document.createElement('p');//criação e encapsulamento
+        texto.textContent = 'Esta é uma tag criada pelo createElement'; //adiciona o texto
+        document.body.appendChild(texto);//joga no body
+
+
+        //EXEMPLO 2
+        // Cria um novo elemento <button>
+        const botao = document.createElement('button');
+
+        // Define atributos para o botão
+        botao.setAttribute('class', 'meu-botao');//OUTRA AULA
+        botao.setAttribute('id', 'btn1');
+
+        // Adiciona texto ao botão
+        botao.textContent = 'Clique Aqui';
+
+        // Adiciona o botão a um elemento existente no DOM, por exemplo, uma div com id 'container'
+        const container = document.getElementById('container');//primeiro puxa pelo id e encapsula 
+        container.appendChild(botao);//utiliza a variável encapsulada
+
+        //EXEMPLO 3
+        // Cria o elemento <ul>
+        const lista = document.createElement('ul');
+
+        // Array com os itens da lista
+        const itens = ['Item 1', 'Item 2', 'Item 3'];
+
+        // Itera sobre os itens e cria elementos <li> para cada um
+        itens.forEach(texto => {
+            const item = document.createElement('li');
+            item.textContent = texto;
+            lista.appendChild(item);
+        });
+
+        // Adiciona a lista ao corpo do documento
+        document.body.appendChild(lista);
+
+
+    </script>
+</body>
+
+</html>

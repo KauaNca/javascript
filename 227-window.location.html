@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>227</title>
+</head>
+<body>
+    <script>
+
+        /*
+            O objeto window.location (ou simplesmente location) fornece informações sobre a URL DA PÁGINA ATUAL e permite interagir com ela, como redirecionar para outra URL, recarregar a página e outras. Ele aponta apenas para a URL da página que está atualmente carregada no navegador. Não há uma funcionalidade nativa no objeto location para acessar diretamente informações de URLs de outras páginas que não estejam carregadas.
+        */
+        document.write(window.location.protocol + '://' + window.location+'<br><br>') //mostra o protocolo junto com as informações da URL atual.
+
+        document.write("HOST: "+location.host+'<br><br>')
+        //O hostname, ou nome do host, é um nome único que identifica um dispositivo conectado a uma rede. Ele é usado para diferenciar e identificar cada dispositivo dentro de uma rede, seja ela local ou global. Nesse junto é especificado a porta
+
+        document.write("HOSTNAME: "+location.hostname+'<br><br>')//somente o host 
+
+        document.write("PORT: "+location.port+'<br><br>')//mostra a porta na qual o documento está sendo acessado. Se não estiver especificada, o padrão é 80
+
+
+        /*let outroEndereco = window.location = "../HTML5_e_CSS/links/links.html";
+            //TENTEI COLOCAR OUTRO ENDEREÇO, MAS NÃO FUNCIONOU. REALMENTE É SÓ A URL ATUAL 
+        */
+        document.write("Caminho da URL: "+ location.pathname+'<br><br>')
+    </script>
+    <script>
+        //window.location.href -> redirecionar o usuário para outra página
+
+        //window.location.assign(url)-> mesma coisa. assign = atribuir
+
+        //window.location.replace(url)-> não mantém a página atual no histórico do navegador. Isso significa que o usuário não poderá usar o botão "Voltar" para retornar à página anterior.
+
+        //window.location.reload() -> atualiza a página atual
+    </script>
+
+    <button onclick="window.location.reload();">Atualizar</button>
+    <button onclick="window.location.href = '../HTML5_e_CSS/links/links.html'">Ir para outra página</button><!--caminho relativo ou absoluto??-->
+</body>
+</html>

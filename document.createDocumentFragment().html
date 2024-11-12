@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="minhaLista">
+        <!-- Itens da lista aqui criados pelo DocumentFragment-->
+    </ul>
+    <script>
+        // Cria um fragmento de documento
+        const fragmento = document.createDocumentFragment();
+
+        // Cria e adiciona múltiplos elementos ao fragmento
+        for (let i = 1; i <= 5; i++) {
+            const item = document.createElement('li');
+            item.textContent = `Item ${i}`;
+            fragmento.appendChild(item);
+        }
+
+        // Seleciona a lista existente
+        const lista = document.getElementById('minhaLista');
+
+        // Adiciona todos os itens de uma vez à lista
+        lista.appendChild(fragmento);
+
+    </script>
+</body>
+
+</html>

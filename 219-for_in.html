@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>219</title>
+</head>
+
+<body>
+    <h1>
+        For In
+    </h1>
+    <p>
+        O For...In é usado para percorrer os elementos de um objeto. Ele possui a vantagem de não depender de um índice fixo, ou seja, pode ser qualquer índice. A variável dentro dele recebe o índice e assim pode-se acessar o que tem dentro do objeto/array.
+    </p>
+    <p>
+        SINTAXE:<br>
+        for(variável + in + nome_do_objeto a ser pecorrido){<br>
+            //Código a ser executado<br>
+        }
+    </p>
+    <script>
+        let pessoa = {nome: 'Kauã', idade: 25, endereço: 'Rua ABC, 123'}
+        for(let x in pessoa){
+            document.write(x + ':'+ pessoa[x] + '<br>') //nome: Kauã, idade: 25, endereço: Rua ABC, 123
+        }
+        /*
+            perceba, x recebe o índice e por meio dele acessa o que está dentro. No primeiro x = nome, e para acessar dentro,
+            coloca-se pessoa[x] = pessoa[nome] = Kauã
+        */
+
+        let pessoas = [
+            {nome: 'Kauã', idade: 25},
+            {nome: 'Ana', idade: 28},
+            {nome: 'Lum', idade: 30}
+        ]
+        for (y in pessoas){
+            document.write('<br>ÍNDICE PRINCIPAL: '+y+ ' -> '+ pessoas[y].nome + ' '+ pessoas[y].idade + '<br>')
+        }
+
+        //EXEMPLO SEM SER ÍNDICES NUMÉRICOS
+
+        let nomes = Array()
+        nomes['a'] = 'Kauã'
+        nomes[-10] = 'Ana'
+        nomes['?'] = 'Lum'
+        for (let i in nomes){
+            document.write('<br>Índice: '+i+ ' -> '+ nomes[i] + '<br>')
+        }
+    </script>
+</body>
+
+</html>
