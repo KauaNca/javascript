@@ -14,6 +14,8 @@
     <script>
         // Cria um fragmento de documento
         const fragmento = document.createDocumentFragment();
+        //- O que é? Um DocumentFragment é um contêiner temporário leve. Ele é usado para armazenar elementos DOM antes de adicioná-los ao documento principal.
+        //Por que usar? Manipulações no DocumentFragment não causam re-renderização imediata da página, tornando o processo mais eficiente.
 
         // Cria e adiciona múltiplos elementos ao fragmento
         for (let i = 1; i <= 5; i++) {
@@ -27,6 +29,9 @@
 
         // Adiciona todos os itens de uma vez à lista
         lista.appendChild(fragmento);
+        //O que acontece aqui? O fragmento, que contém os 5 elementos <li>, é adicionado de uma só vez ao 
+        // elemento com o ID minhaLista.
+
 
     </script>
 </body>
